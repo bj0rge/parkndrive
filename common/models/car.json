@@ -1,0 +1,36 @@
+{
+  "name": "Car",
+  "plural": "cars",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mysql": {
+    "table": "e_car"
+  },
+  "properties": {
+    "registrationNumber": {
+      "type": "string",
+      "required": true
+    },
+    "lastTimeUsed": {
+      "type": "date"
+    },
+    "traveledDistance": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {
+    "drivers": {
+      "type": "hasAndBelongsToMany",
+      "model": "Driver",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
