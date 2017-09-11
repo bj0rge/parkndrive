@@ -30,13 +30,8 @@ CREATE TABLE IF NOT EXISTS `e_house` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
--- foreign key
-ALTER TABLE `e_driver`
-  ADD CONSTRAINT `FK__e_driver__e_house__h_id` FOREIGN KEY (`d_h_id`) REFERENCES `e_house` (`h_id`) ON DELETE CASCADE;
-
-
 -- mandatory for user model
-ALTER TABLE  `e_driver` 
+ALTER TABLE  `e_driver`
   ADD `realm` varchar(50) NULL DEFAULT NULL,
   ADD `credentials` varchar(50) NULL DEFAULT NULL,
   ADD `challenges` varchar(50) NULL DEFAULT NULL,

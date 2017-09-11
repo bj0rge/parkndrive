@@ -7,7 +7,7 @@
     "host": "localhost",
     "port": 3306,
     "database": "parkndrive",
-    "password": "root",
+    "password": "park",
     "name": "sql",
     "user": "root",
     "connector": "mysql"
