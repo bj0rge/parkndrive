@@ -50,7 +50,9 @@ Finally, create the file `server/datasources.json` in which you will write:
 You will also have to execute both files in `/sql` in order to create your database and populate it.
 You must create a database parkndrive if you don't already have it :
 CREATE DATABASE parkndrive;
-USE parkndrive;
+
+Puis en ligne en de commande :
+mysql -u root -p parkndrive < file.sql
 
 ## Launch the project
 
