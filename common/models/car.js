@@ -1,8 +1,5 @@
 'use strict';
 
-var loopback = require('loopback');
-var LoopBackContext = require('loopback-context');
-
 module.exports = function (Car) {
   // add dist and update the last time used of the target car (this methods is filtered by acl)
   Car.addDistance = function (id, dist, cb) {

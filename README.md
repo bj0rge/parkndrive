@@ -9,7 +9,7 @@ Before all, you'll need some requirements.
 
 With apt, you'll need to install the mysql suite 5.6, build-essentials, python 2.7.X, git.
 
-Run this: 
+Run this:
 
 ```bash
 cd /tmp
@@ -48,7 +48,9 @@ Finally, create the file `server/datasources.json` in which you will write:
 ```
 
 You will also have to execute both files in `/sql` in order to create your database and populate it.
-
+You must create a database parkndrive if you don't already have it :
+CREATE DATABASE parkndrive;
+USE parkndrive;
 
 ## Launch the project
 

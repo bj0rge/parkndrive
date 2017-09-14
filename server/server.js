@@ -1,7 +1,6 @@
 'use strict';
 
 var loopback = require('loopback');
-var LoopbackContext = require('loopback-context');
 var boot = require('loopback-boot');
 
 var bodyParser = require('body-parser');
