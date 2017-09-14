@@ -1,0 +1,15 @@
+<h3><i class="fa fa-road" aria-hidden="true"></i>Travels history</h3>
+
+<table class="table">
+  <% for(var i = 0; i < travels.length;i++) { %>
+  <tr>
+    <td>
+      le <%= moment(new Date(travels[i].date)).format("DD/MM/YYYY à HH:mm:ss") %>
+    </td>
+    <td><%= travels[i].distance %> km
+    </td>
+    <td><%= travels[i].driver.username %></td>
+    <td><%= travels[i].car.registrationNumber %></td>
+  </tr>
+  <% } %>
+</table>

@@ -1,0 +1,87 @@
+<%- include('header', {sess:sess}); %>
+<% if (user.id == sess.user.id) { %>
+<h2>Edit your informations</h2>
+<%
+}else{ %>
+<h2>Edit profile informations</h2>
+<%
+}
+%>
+<div class="row">
+  <div class="col-md-6">
+    <form action="/editinfos/<%= id %>" method="POST" class="form-horizontal">
+      <fieldset>
+        <legend>Personnal informations :</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="firstname">
+            First Name :
+          </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="firstname" value="<%= user.firstName %>"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="name">
+            Name :
+          </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="name" value="<%= user.name %>"/></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="email">
+            Email :
+          </label>
+          <div class="col-sm-8">
+            <input type="email" class="form-control" name="email" value="<%= user.email %>"/>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Habitation :</legend>
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="hab_name">
+            Name : </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="hab_name" value="<%= habitation.name %>"/></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="hab_address">
+            Address :
+          </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="hab_address" value="<%= habitation.address %>"/></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="hab_postalCode">
+            Postal Code :
+          </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="hab_postalCode" value="<%= habitation.postalCode %>"/></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="hab_city">
+            City :
+          </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="hab_city" value="<%= habitation.city %>"/></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="hab_country">
+            Country : </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="hab_country" value="<%= habitation.country %>"/></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="hab_value">
+            Value : </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="hab_value" value="<%= habitation.alias_value %>"/></div>
+        </div>
+      </fieldset>
+      <div class="form-group text-center">
+        <input type="submit" class="btn btn-primary" value="Submit"/>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include('footer'); %>

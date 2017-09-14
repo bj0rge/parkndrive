@@ -1,3 +1,69 @@
-Congratulations, you are logged in as <%= user.firstName %> <%= user.name%>!<br>
-You live at <%= user.habitation.address%>, <%= user.habitation.city%>.<br />
-You can add a car to <a href="./addcar">your list</a>
+<%- include('header', {sess:sess}); %>
+<div class="page-header">
+  <h1>Home</h1>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <p>
+      Congratulations, you are logged in as <%= user.firstName %> <%= user.name %>!<br>
+      You live at <%= user.habitation.address %>, <%= user.habitation.city %>.<br/>
+    </p>
+    <p>You can :<br/>
+
+      <a href="./editcar/new" class="btn btn-warning btn-lg"><i class="fa fa-car" aria-hidden="true"></i> Manage your
+        cars list</a>
+
+      <a href="./editinfos/<%= user.id %>" class="btn btn-success btn-lg"><span
+          class="glyphicon glyphicon-share"></span> Edit your informations</a>
+
+    </p>
+  </div>
+  <div class="col-md-6">
+    <% if (admin) { %>
+    <h3><i class="fa fa-car" aria-hidden="true"></i>
+      The five last used cars</h3>
+    <table class="table">
+      <% for(var i = 0; i < cars.length;i++) { %>
+      <tr>
+        <td>
+          <%= cars[i].registrationNumber %>
+          le <%= moment(new Date(cars[i].lastTimeUsed)).format("DD/MM/YYYY à HH:mm:ss") %>
+        </td>
+        <td><%= cars[i].traveledDistance %> km
+        </td>
+        <td><a href="./editcar/<%= cars[i].id %>" class="btn btn-danger btn-xs"><span
+              class="glyphicon glyphicon-wrench"></span> Edit</a></td>
+      </tr>
+      <% } %>
+
+      <tr>
+        <td>Total</td>
+        <td><%= traveledDistance %> km</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <%- include('travels',{travels:travels}) %>
+  </div>
+  <div class="col-md-6">
+    <h3><i class="fa fa-user-circle" aria-hidden="true"></i> Drivers</h3>
+    <table class="table">
+      <% for(var i = 0; i < drivers.length;i++) { %>
+      <tr>
+        <td>
+          <%= drivers[i].username %></td>
+        <td><a href="./editinfos/<%= drivers[i].id %>" class="btn btn-danger btn-xs">
+            <i class="fa fa-cog" aria-hidden="true"></i> Edit</a>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+  <% } else{ %>
+
+  <%- include('travels',{travels:travels}) %>
+  <% } %>
+</div>
+</div>
+<%- include('footer'); %>

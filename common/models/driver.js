@@ -2,12 +2,21 @@
 
 module.exports = function(Driver) {
 
-	
-	
-	
+
+
+
 	/* #############################################################
 	   ########################### HOOKS ###########################
 	   ############################################################# */
+
+
+  Driver.afterRemote('*.__get__habitation',function(ctx,house,next){
+    // driver cannot access to the value of another driver house through API
+    if(!(ctx.req.accessToken.userId == ctx.instance.id)){
+      ctx.result.value='';
+    }
+    next();
+  });
 
 	/**
 	 * DO NOT EDIT THIS
