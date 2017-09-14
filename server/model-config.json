@@ -39,5 +39,13 @@
   "House": {
     "dataSource": "sql",
     "public": true
+  },
+  "Car": {
+    "dataSource": "sql",
+    "public": true
+  },
+  "Travel": {
+    "dataSource": "sql",
+    "public": true
   }
 }

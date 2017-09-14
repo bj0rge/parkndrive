@@ -1,0 +1,45 @@
+<%- include('header', {sess:sess}); %>
+<% if (id == 'new') { %>
+<h2>Add a new car</h2>
+<% } else{ %>
+<h2>Edit car</h2>
+<% } %>
+<div class="row">
+  <div class="col-md-6">
+    <form action="/editcar/<%= id %>" method="POST" class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="registrationNumber">
+          Registration Number :
+        </label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" name="registrationNumber" id="registrationNumber"
+                 required="required"
+                 value="<%= car.registrationNumber %>"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="color">
+          Color :
+        </label>
+        <div class="col-sm-8">
+          <input type="text" name="color" class="form-control" required="required" id="color" value="<%= car.color %>"/>
+        </div>
+      </div>
+      <div class="col-sm-8 col-sm-offset-4">
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" value="Submit"/>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<h2>Edit one of your cars</h2>
+<ul>
+  <% for(var i = 0; i < cars.length;i++) { %>
+  <li>
+    <a href="/editcar/<%= cars[i].id %>"><%= cars[i].registrationNumber %></a>
+  </li>
+  <% } %>
+</ul>
+<%- include('footer'); %>
